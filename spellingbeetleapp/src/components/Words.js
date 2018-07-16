@@ -15,8 +15,8 @@ class Words extends Component {
         <p className="componentname">Words</p>
       	<ul>{this.props.userAnswers.map(function(item,i){return <li key={i}>{item}</li>})}</ul>
       	
-      	{/* following should be called upon input */}
-      	<button onClick={() => {this.props.updateScore()}}>Update score</button>
+      	{/* following should be called upon input 
+      	<button onClick={() => {this.props.updateScore()}}>Update score</button>*/}
       </div>
     );
   }

@@ -5,6 +5,7 @@ import Header from './components/Header';
 import UserScore from './components/UserScore';
 import Letters from './components/Letters';
 import Words from './components/Words';
+import Answers from './components/Answers';
 
 import words5short from './data/jumble-words_5_short.json';
 
@@ -14,11 +15,11 @@ class App extends Component {
     super();
     this.state = {
       validLetters: words5short.wordSets[5].validLetters,
-      pangrams: words5short.wordSets[5].pangram,
+      validPangrams: words5short.wordSets[5].pangram,
       validAnswers: words5short.wordSets[5].answers,
       userAnswers: ["rabbet", "rebate"],
+      userPangrams: [],
       userScore: 0,
-      userGuess: undefined
     }
   }
 
@@ -41,16 +42,13 @@ class App extends Component {
       score = score + word.length;
       console.log(word.length);
     })
+    this.state.userPangrams.forEach(function(word) {
+      score = score + 10;
+    })
     this.setState({
         userScore: score
       })
   }
-
-  // guessWord(word) {
-  //    this.setState({
-  //     userGuess: word
-  //   })
-  // }
 
   evaluateWord(word) {
     // let word = this.state.userGuess;
@@ -58,10 +56,12 @@ class App extends Component {
     console.log(this.state.validAnswers);
     if (this.state.validAnswers.includes(word)) {
       console.log("word is accepted");
+      // add validPangrams evaluation
       currentList.push(word);
       this.setState({
         userAnswers: currentList
-      })
+      });
+      this.scoreAnswers();
     } else {
       console.log("word is rejected")
     }
@@ -73,15 +73,19 @@ class App extends Component {
 
     this.setState({
       validLetters: words5short.wordSets[newNum].validLetters,
-      pangrams: words5short.wordSets[newNum].pangram,
-      validAnswers: words5short.wordSets[newNum].answers      })
+      validPangrams: words5short.wordSets[newNum].pangram,
+      validAnswers: words5short.wordSets[newNum].answers,
+      userAnswers: [],
+      userPangrams: [],
+      userScore: 0,
+    })
   }
 
   render() {
     console.log("React connected!");
     // console.log(this.state.validLetters);
-    // console.log(this.state.pangrams);
-    // console.log(this.state.answers);
+    // console.log(this.state.validPangrams);
+    // console.log(this.state.validAnswers);
     return (
       <div className="App">
         <Header/>
@@ -95,13 +99,17 @@ class App extends Component {
           newSet={this.newSet.bind(this)}
         />
         <Words
-          pangrams={this.state.pangrams}
-          validAnswers={this.state.answers}
+          validPangrams={this.state.validPangrams}
+          validAnswers={this.state.validAnswers}
           userAnswers={this.state.userAnswers}
           updateScore={this.scoreAnswers.bind(this)}
           // guessWord={this.guessWord.bind(this)}
           evaluateWord={this.evaluateWord.bind(this)}
         />
+        <Answers
+          validPangrams={this.state.validPangrams}
+          validAnswers={this.state.validAnswers}
+         />
       </div>
     );
   }

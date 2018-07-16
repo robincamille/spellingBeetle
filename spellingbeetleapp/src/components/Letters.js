@@ -4,7 +4,7 @@ class Letters extends Component {
 
   render() {
     return (
-      <div className="component" id="letterscomponent" onLoad={() => {this.shuffleLetters()}}>
+      <div className="component" id="letterscomponent" >
         <p className="componentname">Letters</p>
         <ul>{this.props.validLetters.map(function(item,i){return <li key={i}>{item}</li>})}</ul>
         <div id="actions">
