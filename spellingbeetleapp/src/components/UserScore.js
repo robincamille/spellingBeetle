@@ -5,8 +5,8 @@ class UserScore extends Component {
     return (
       <div className="component" id="userscorecomponent">
         <p className="componentname">UserScore</p>
-      	<p id="score">Score: XX</p>
-      	<p id="wordcount">Words: XX</p>
+      	<p id="score">Score: {this.props.userScore}</p>
+      	<p id="wordcount">Words: {this.props.wordCount}</p>
       </div>
     );
   }

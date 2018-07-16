@@ -8,8 +8,8 @@ class Letters extends Component {
         <p className="componentname">Letters</p>
         <ul>{this.props.validLetters.map(function(item,i){return <li key={i}>{item}</li>})}</ul>
         <div id="actions">
-			<p onClick={() => {this.props.shuffleTheLetters()}}>Shuffle</p>
-			<p onClick={() => {this.props.newSet()}}>New set</p>
+			<button id="shuffle" onClick={() => {this.props.shuffleTheLetters()}}>Shuffle</button>
+			<button id="newset" onClick={() => {this.props.newSet()}}>New set</button>
         </div>
       </div>
     );

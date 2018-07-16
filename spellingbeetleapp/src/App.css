@@ -51,6 +51,19 @@
   margin: 5px;
 }
 
+#letterscomponent #actions button {
+  cursor: pointer;
+  margin: 10px;
+}
+
+#letterscomponent #actions #shuffle {
+
+}
+
+#letterscomponent #actions #newset {
+  
+}
+
 #wordscomponent {
   width:48%;
   float:right;

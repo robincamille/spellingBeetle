@@ -6,12 +6,17 @@ class Words extends Component {
   render() {
     return (
       <div className="component" id="wordscomponent">
-        <Input/>
+        <Input 
+		 	evaluateWord={this.props.evaluateWord.bind(this)}
+        />
+
+
+
         <p className="componentname">Words</p>
-      	<ul>
-      		<li>Word1</li>
-      		<li>Word2</li>
-      	</ul>
+      	<ul>{this.props.userAnswers.map(function(item,i){return <li key={i}>{item}</li>})}</ul>
+      	
+      	{/* following should be called upon input */}
+      	<button onClick={() => {this.props.updateScore()}}>Update score</button>
       </div>
     );
   }
