@@ -14,10 +14,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      validLetters: words5short.wordSets[5].validLetters,
-      validPangrams: words5short.wordSets[5].pangram,
-      validAnswers: words5short.wordSets[5].answers,
-      userAnswers: ["rabbet", "rebate"],
+      validLetters: words5short.wordSets[1].validLetters,
+      validPangrams: words5short.wordSets[1].pangram,
+      validAnswers: words5short.wordSets[1].answers,
+      userAnswers: ["alee", "bezel"],
       userPangrams: [],
       userScore: 0,
     }
@@ -40,10 +40,10 @@ class App extends Component {
     let score = this.state.userScore;
     this.state.userAnswers.forEach(function(word) {
       score = score + word.length;
-      console.log(word.length);
+      //console.log(word.length);
     })
     this.state.userPangrams.forEach(function(word) {
-      score = score + 10;
+      score = score + 10 + word.length;
     })
     this.setState({
         userScore: score
@@ -53,18 +53,26 @@ class App extends Component {
   evaluateWord(word) {
     // let word = this.state.userGuess;
     let currentList = this.state.userAnswers;
-    console.log(this.state.validAnswers);
-    if (this.state.validAnswers.includes(word)) {
-      console.log("word is accepted");
-      // add validPangrams evaluation
-      currentList.push(word);
-      this.setState({
-        userAnswers: currentList
-      });
-      this.scoreAnswers();
-    } else {
-      console.log("word is rejected")
-    }
+    let currentPangram = this.state.userPangrams;
+    if (this.state.userAnswers.includes(word)) {
+      console.log("word already guessed")
+      } else if (this.state.validPangrams.includes(word)) {
+        console.log("pangram!");
+        currentPangram.push(word);
+        this.setState({
+          userPangrams: currentPangram
+        });
+        this.scoreAnswers();
+      } else if (this.state.validAnswers.includes(word)) {
+        console.log("word is accepted");
+        currentList.push(word);
+        this.setState({
+          userAnswers: currentList
+        });
+        this.scoreAnswers();
+      } else {
+        console.log("word is rejected")
+      }
   }
 
   newSet() {
@@ -82,7 +90,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("React connected!");
+    // console.log("React connected!");
     // console.log(this.state.validLetters);
     // console.log(this.state.validPangrams);
     // console.log(this.state.validAnswers);
@@ -102,6 +110,7 @@ class App extends Component {
           validPangrams={this.state.validPangrams}
           validAnswers={this.state.validAnswers}
           userAnswers={this.state.userAnswers}
+          userPangrams={this.state.userPangrams}
           updateScore={this.scoreAnswers.bind(this)}
           // guessWord={this.guessWord.bind(this)}
           evaluateWord={this.evaluateWord.bind(this)}

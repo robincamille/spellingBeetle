@@ -11,7 +11,7 @@ class Input extends Component {
       	<input></input>
 
       {/* following should happen when user inputs a word */}
-      	<button onClick={() => {this.props.evaluateWord("brrr")}}>Evaluate "brrr"</button>
+      	<button onClick={() => {this.props.evaluateWord("ablaze")}}>Evaluate "ablaze"</button>
       
 		
 

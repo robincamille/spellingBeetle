@@ -65,6 +65,7 @@
 #wordscomponent {
   width:48%;
   float:right;
+  min-height: 300px;
 }
 
 #wordscomponent ul {
@@ -75,6 +76,10 @@
 
 #inputcomponent {
 
+}
+
+#wordscomponent h3 {
+  clear:both;
 }
 
 #answerscomponent {

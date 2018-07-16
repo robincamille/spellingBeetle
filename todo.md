@@ -1,5 +1,7 @@
 # To do
 
+Note: assumption for word data: Answers does not include Pangrams
+
 ## For MVP
 - Capture user input
 - Randomly choose a word set with each page refresh (currently hardcoded)
@@ -13,6 +15,8 @@
 - Allow choice of 5, 6, 7, 8 letter word pangrams (change New Set button)
 - Pick one special letter (this will need to happen at the data level, then need to revise button and add a Js function)
 - Display answers
+- Exclude very offensive words from data
+- Some word sets are duplicates
 
 
 # Challenges solved
