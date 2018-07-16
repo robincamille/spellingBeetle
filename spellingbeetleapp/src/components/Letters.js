@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 
 class Letters extends Component {
+
   render() {
     return (
-      <div className="component" id="letterscomponent">
-        <p>Letters</p>
+      <div className="component" id="letterscomponent" onLoad={() => {this.shuffleLetters()}}>
+        <p className="componentname">Letters</p>
         <ul>{this.props.validLetters.map(function(item,i){return <li key={i}>{item}</li>})}</ul>
         <div id="actions">
-			<p>Shuffle</p>
-			<p>New set</p>
+			<p onClick={() => {this.props.shuffleTheLetters()}}>Shuffle</p>
+			<p onClick={() => {this.props.newSet()}}>New set</p>
         </div>
       </div>
     );

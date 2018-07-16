@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 
 class Input extends Component {
+
+  constructor() {
+  	super();
+  	this.state = {
+  	}
+  }
+
   render() {
     return (
       <div className="component" id="inputcomponent">
-        <p>Input</p>
+        <p className="componentname">Input</p>
+      	<input></input>
       </div>
     );
   }

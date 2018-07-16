@@ -4,12 +4,32 @@
   border:1px solid orange;
 }
 
+.componentname {
+  display: block;
+  font-size: .5em;
+  color:gray;
+  float: left;
+}
+
 #headercomponent {
   width:100%;
 }
 
-#userscorecomonent {
+#headercomponent #rules ul {
+  display: none;
+  text-align: left;
+}
+
+#userscorecomponent {
   width:100%;
+}
+
+#userscorecomponent #score {
+  clear: both;
+}
+
+#userscorecomponent #wordcount {
+  clear: both;
 }
 
 #letterscomponent {
@@ -31,13 +51,15 @@
   margin: 5px;
 }
 
-#actionscomponent {
-  
-}
-
 #wordscomponent {
   width:48%;
   float:right;
+}
+
+#wordscomponent ul {
+  list-style-type: none;
+  text-align: left;
+  clear: both;
 }
 
 #inputcomponent {

@@ -7,7 +7,11 @@ class Words extends Component {
     return (
       <div className="component" id="wordscomponent">
         <Input/>
-        <p>Words</p>
+        <p className="componentname">Words</p>
+      	<ul>
+      		<li>Word1</li>
+      		<li>Word2</li>
+      	</ul>
       </div>
     );
   }
