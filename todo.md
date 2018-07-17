@@ -3,10 +3,9 @@
 Note: assumption for word data: Answers does not include Pangrams
 
 ## For MVP
-- Capture user input
-- Randomly choose a word set with each page refresh (currently hardcoded)
-- Alphabetize userAnswers with each accepted answer
-- Hide/show rules and answers(jQuery?) 
+- Re-do word data files: there are lots of viable words not included, and lots of words that are way obscure. 
+- Randomly choose a word set with each page refresh (currently hardcoded where to start)
+- Hide/show rules and answers (jQuery?)  - currently commented out
 
 
 ## With more time

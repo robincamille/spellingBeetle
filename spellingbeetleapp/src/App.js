@@ -17,8 +17,9 @@ class App extends Component {
       validLetters: words5short.wordSets[1].validLetters,
       validPangrams: words5short.wordSets[1].pangram,
       validAnswers: words5short.wordSets[1].answers,
-      userAnswers: ["alee", "bezel"],
+      userAnswers: [],
       userPangrams: [],
+      userGuess: "",
       userScore: 0,
     }
   }
@@ -37,13 +38,17 @@ class App extends Component {
   }
 
   scoreAnswers() {
-    let score = this.state.userScore;
+    //let score = this.state.userScore;
+
+    let score = 0;
+
     this.state.userAnswers.forEach(function(word) {
       score = score + word.length;
-      //console.log(word.length);
+      console.log('+ ' + word.length);
     })
     this.state.userPangrams.forEach(function(word) {
       score = score + 10 + word.length;
+      console.log('+ 10 + ' + word.length);
     })
     this.setState({
         userScore: score
@@ -52,13 +57,19 @@ class App extends Component {
 
   evaluateWord(word) {
     // let word = this.state.userGuess;
+    //let word = event.target.value;
+    console.log(word + ' submitted');
+    //console.log(this.state.validAnswers);
+
     let currentList = this.state.userAnswers;
     let currentPangram = this.state.userPangrams;
+
     if (this.state.userAnswers.includes(word)) {
       console.log("word already guessed")
       } else if (this.state.validPangrams.includes(word)) {
         console.log("pangram!");
         currentPangram.push(word);
+        currentPangram.sort();
         this.setState({
           userPangrams: currentPangram
         });
@@ -66,12 +77,15 @@ class App extends Component {
       } else if (this.state.validAnswers.includes(word)) {
         console.log("word is accepted");
         currentList.push(word);
+        currentList.sort();
         this.setState({
           userAnswers: currentList
         });
         this.scoreAnswers();
       } else {
-        console.log("word is rejected")
+        console.log("word is rejected");
+
+
       }
   }
 
@@ -99,7 +113,7 @@ class App extends Component {
         <Header/>
         <UserScore
           userScore={this.state.userScore}
-          wordCount={this.state.userAnswers.length}
+          wordCount={this.state.userAnswers.length + this.state.userPangrams.length}
         />
         <Letters
           shuffleTheLetters={this.shuffleLetters.bind(this)}
@@ -112,13 +126,14 @@ class App extends Component {
           userAnswers={this.state.userAnswers}
           userPangrams={this.state.userPangrams}
           updateScore={this.scoreAnswers.bind(this)}
-          // guessWord={this.guessWord.bind(this)}
           evaluateWord={this.evaluateWord.bind(this)}
         />
+        {/*
         <Answers
           validPangrams={this.state.validPangrams}
           validAnswers={this.state.validAnswers}
          />
+       */}
       </div>
     );
   }

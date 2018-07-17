@@ -11,6 +11,7 @@ class Header extends Component {
       <div className="component" id="headercomponent">
         <p className="componentname">Header</p>
       	<h1>Spelling Beetle</h1>
+      	{/*
       	<div id="rules">
       		<button onClick={() => {this.displayRules()}}>Rules</button>
       		<ul>
@@ -21,6 +22,7 @@ class Header extends Component {
       		<li>Pangrams (words that use all the given letters) are worth an extra 10 points on top of their word score.</li>
       		</ul>
       	</div>
+      	*/}
       </div>
     );
   }

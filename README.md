@@ -8,11 +8,11 @@ I love the NYT's [Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee) ga
 
 
 ## Project deliverables
-- JavaScript front end that:
-	- randomly chooses a pangram word set (sort of done)
-	- takes input
-	- evaluates answers (done)
-	- scores user progress (done)
+JavaScript front end that:
+- randomly chooses a pangram word set (sort of done - need to update word data files and set random choice)
+- takes input (done)
+- evaluates answers (done)
+- scores user progress (done)
 	
 ### Future features
 - Add feature to display definitions, so that you can see what bonkers-sounding words like 'hobbinoll' and 'waubeen' mean
