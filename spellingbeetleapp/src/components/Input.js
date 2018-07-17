@@ -33,6 +33,7 @@ class Input extends Component {
     return (
       <div className="component" id="inputcomponent">
         <p className="componentname">Input</p>
+
       	<form onSubmit={this.handleSubmit}>
         <label>
           Guess:
@@ -41,11 +42,10 @@ class Input extends Component {
           	type="text" 
           	value={this.state.guess}  
           	onChange={this.handleChange}
-			/>
-        <input type="submit" value="Submit" />
+			/> &nbsp;
+        <input type="submit" value="Submit" id="submitbutton" />
       </form>
 
-		
 
       </div>
     );

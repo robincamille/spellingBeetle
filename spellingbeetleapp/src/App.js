@@ -7,16 +7,18 @@ import Letters from './components/Letters';
 import Words from './components/Words';
 import Answers from './components/Answers';
 
-import words5short from './data/jumble-words_5_short.json';
+import words5short from './data/jumble-words_nltk_5_short.json';
+
+let randNum = Math.floor(Math.random() * (words5short.wordSets.length - 1));
 
 class App extends Component {
 
   constructor() {
     super();
     this.state = {
-      validLetters: words5short.wordSets[1].validLetters,
-      validPangrams: words5short.wordSets[1].pangram,
-      validAnswers: words5short.wordSets[1].answers,
+      validLetters: words5short.wordSets[randNum].validLetters,
+      validPangrams: words5short.wordSets[randNum].validPangram,
+      validAnswers: words5short.wordSets[randNum].validAnswers,
       userAnswers: [],
       userPangrams: [],
       userGuess: "",
@@ -71,7 +73,7 @@ class App extends Component {
         currentPangram.push(word);
         currentPangram.sort();
         this.setState({
-          userPangrams: currentPangram
+          userPangrams: currentPangram,
         });
         this.scoreAnswers();
       } else if (this.state.validAnswers.includes(word)) {
@@ -79,11 +81,14 @@ class App extends Component {
         currentList.push(word);
         currentList.sort();
         this.setState({
-          userAnswers: currentList
+          userAnswers: currentList,
         });
         this.scoreAnswers();
       } else {
         console.log("word is rejected");
+        this.setState({
+          userPangrams: currentPangram,
+        });
 
 
       }
@@ -95,8 +100,8 @@ class App extends Component {
 
     this.setState({
       validLetters: words5short.wordSets[newNum].validLetters,
-      validPangrams: words5short.wordSets[newNum].pangram,
-      validAnswers: words5short.wordSets[newNum].answers,
+      validPangrams: words5short.wordSets[newNum].validPangram,
+      validAnswers: words5short.wordSets[newNum].validAnswers,
       userAnswers: [],
       userPangrams: [],
       userScore: 0,

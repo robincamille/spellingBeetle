@@ -1,11 +1,16 @@
+body {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .component {
-  background-color: lightyellow;
+  background-color: white;
   margin:0.5%;
-  border:1px solid orange;
+  /*border:1px solid gray;*/
 }
 
 .componentname {
-  display: block;
+  display: none;
   font-size: .5em;
   color:gray;
   float: left;
@@ -20,6 +25,7 @@
 }
 
 #userscorecomponent {
+  border-bottom:1px solid gray;
 }
 
 #userscorecomponent #score {
@@ -75,7 +81,25 @@
 }
 
 #inputcomponent {
+  border:0;
+  padding: 10px;
+}
 
+
+#inputcomponent #correctanswer {
+  display:none;
+}
+
+#inputcomponent #incorrectanswer {
+  display:none;
+}
+
+#inputcomponent label {
+  display: none; /* make this accessible */
+}
+
+#inputcomponent #submitbutton {
+  margin-left:2px;
 }
 
 #wordscomponent h3 {
@@ -118,6 +142,70 @@
 
 .App-intro {
   font-size: large;
+}
+
+
+input {
+  padding:5px;
+}
+
+input[type="text"] {
+  padding: 6px 4px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #222222;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+button, input[type="submit"] {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  position:relative;
+  top:-1px;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+button, input[type="submit"] {
+    color: #ffffff;
+  background-color: #214f94;
+  border-color: #214f94;
+}
+
+button:hover,
+button:focus,
+button:active,
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+input[type="submit"]:active
+{
+  color: #ffffff;
+  background-color: #175fca;
+  border-color: #175fca;
+}
+
+small {
+  color:silver;
 }
 
 @keyframes App-logo-spin {
