@@ -19,7 +19,7 @@ I love the NYT's [Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee) ga
 
 ## Word jumble data
 
-I've included word-jumble\_5.txt (5-letter pangrams), word-jumble\_6.txt, word-jumble\_7.txt, and word-jumble\_8.txt.
+I've included word-jumble\_5.txt (5-letter pangrams), word-jumble\_6.txt, word-jumble\_7.txt, and word-jumble\_8.txt. (Note: the formatting needs to be corrected in these files!)
 
 ### Or make it yourself
 Start with a list of words. Here's what I used: [@dwyl's list of 479k words in English](https://github.com/dwyl/english-words)
