@@ -4,6 +4,9 @@
 
 I love the NYT's [Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee) game so much that I wanted to make a game I could practice on. I call it **Spelling Beetle**. 
 
+![Screenshot](screenshot.png)
+
+
 ## Project deliverables
 JavaScript front end that:
 - randomly chooses a pangram word set (done)
