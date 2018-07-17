@@ -7,18 +7,17 @@ import Letters from './components/Letters';
 import Words from './components/Words';
 import Answers from './components/Answers';
 
-import words5short from './data/jumble-words_nltk_5_short.json';
-
-let randNum = Math.floor(Math.random() * (words5short.wordSets.length - 1));
 
 class App extends Component {
 
   constructor() {
     super();
     this.state = {
-      validLetters: words5short.wordSets[randNum].validLetters,
-      validPangrams: words5short.wordSets[randNum].validPangram,
-      validAnswers: words5short.wordSets[randNum].validAnswers,
+      wordSetLength: undefined,
+
+      validLetters: [],
+      validPangrams: [],
+      validAnswers: [],
       validScore: 0,
       
       userGuess: "",
@@ -27,11 +26,38 @@ class App extends Component {
       userScore: 0,
 
       // AJAX call variables
-      // error: null,
-      // isLoaded: false,
-      // items: []
+      error: null,
+      isLoaded: false,
+      items: []
     }
   }
+
+  //AJAx call
+  //https://reactjs.org/docs/faq-ajax.html
+  componentDidMount() {
+    fetch("https://accesscontrolalloworiginall.herokuapp.com/http://robincamille.com/spellingbeetle/jumble5.json")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          const randNum = Math.floor(Math.random() * (result.wordSets.length - 1));
+          this.setState({
+            isLoaded: true,
+            validLetters: result.wordSets[randNum].validLetters,
+            validPangrams: result.wordSets[randNum].validPangram,
+            validAnswers: result.wordSets[randNum].validAnswers,
+            wordSetLength: result.wordSets.length
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+  //end AJAX stuff
+
 
   shuffleLetters() {
     let theLetters = this.state.validLetters;
@@ -60,8 +86,6 @@ class App extends Component {
   }
 
   scoreAnswers() {
-    //let score = this.state.userScore;
-
     let score = 0;
 
     this.state.userAnswers.forEach(function(word) {
@@ -78,10 +102,7 @@ class App extends Component {
   }
 
   evaluateWord(word) {
-    // let word = this.state.userGuess;
-    //let word = event.target.value;
     console.log(word + ' submitted');
-    //console.log(this.state.validAnswers);
 
     let currentList = this.state.userAnswers;
     let currentPangram = this.state.userPangrams;
@@ -115,24 +136,16 @@ class App extends Component {
   }
 
   newSet() {
-    let topNum = words5short.wordSets.length - 1;
-    let newNum = Math.floor(Math.random() * (topNum + 1));
-
+    this.componentDidMount(); //re-chooses all valid__ state variables
     this.setState({
-      validLetters: words5short.wordSets[newNum].validLetters,
-      validPangrams: words5short.wordSets[newNum].validPangram,
-      validAnswers: words5short.wordSets[newNum].validAnswers,
-      userAnswers: [],
-      userPangrams: [],
-      userScore: 0,
+        userGuess:"",
+        userAnswers: [],
+        userPangrams: [],
+        userScore: 0,
     })
   }
 
   render() {
-    // console.log("React connected!");
-    // console.log(this.state.validLetters);
-    // console.log(this.state.validPangrams);
-    // console.log(this.state.validAnswers);
     return (
       <div className="App">
         <Header/>
@@ -157,12 +170,10 @@ class App extends Component {
           updateScore={this.scoreAnswers.bind(this)}
           evaluateWord={this.evaluateWord.bind(this)}
         />
-        {/*
         <Answers
           validPangrams={this.state.validPangrams}
           validAnswers={this.state.validAnswers}
          />
-       */}
       </div>
     );
   }

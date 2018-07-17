@@ -3,6 +3,14 @@ body {
   margin: 0 auto;
 }
 
+.hidden {
+  display:none;
+}
+
+.show {
+  display:block;
+}
+
 .component {
   background-color: white;
   margin:0.5%;
