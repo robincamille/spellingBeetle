@@ -13,7 +13,7 @@
 		- add to userPangrams
 	1. add to userAnswers array
 		- should automatically render as add list
-		- alphabetize userAnswrs
+		- alphabetize userAnswers
 	1. update user score by adding word length
 	1. display :) message
 1. else

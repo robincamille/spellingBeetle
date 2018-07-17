@@ -6,7 +6,6 @@ I love the NYT's [Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee) ga
 
 ![Screenshot](screenshot.png)
 
-
 ## Project deliverables
 JavaScript front end that:
 - randomly chooses a pangram word set (done)
@@ -16,9 +15,12 @@ JavaScript front end that:
 - looks pretty
 	
 ### Future features
+- Show/hide answers
 - Add 6-, 7-, and 8-letter pangram word set choices
 - Add feature to display definitions, so that you can see what bonkers-sounding words like 'hobbinoll' and 'waubeen' mean
 - Rank pangram difficulty according to word frequency
+
+---
 
 ### Make word lists yourself
 Start with a list of words. I used [NLTK's 200k word list](http://www.nltk.org/).

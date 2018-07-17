@@ -15,7 +15,7 @@ beewords = []
 data = []
 allpangrams = []
 
-num = 5
+num = 7
 strnum = str(num)
 print('making word jumble game data file with ' + strnum + ' letters in pangram')
 
@@ -93,7 +93,7 @@ for anyword in allwords:
 
 print('')
 print('jumble data words length:',len(beewords))
-with open('word_data/jumble-words_nltk_' + strnum + '.json', 'w') as outfile:
+with open('word_data_output/jumble-words_nltk_' + strnum + '.json', 'w') as outfile:
     for words in beewords:
         json.dump(words, outfile)
         outfile.write(',\n')

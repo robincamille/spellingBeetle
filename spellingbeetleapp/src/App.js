@@ -19,10 +19,17 @@ class App extends Component {
       validLetters: words5short.wordSets[randNum].validLetters,
       validPangrams: words5short.wordSets[randNum].validPangram,
       validAnswers: words5short.wordSets[randNum].validAnswers,
-      userAnswers: [],
-      userPangrams: [],
+      validScore: 0,
+      
       userGuess: "",
+      userPangrams: [],
+      userAnswers: [],
       userScore: 0,
+
+      // AJAX call variables
+      // error: null,
+      // isLoaded: false,
+      // items: []
     }
   }
 
@@ -37,6 +44,19 @@ class App extends Component {
     this.setState({
         validLetters: theLetters
       })
+  }
+
+  getValidScores(answers,pangrams) {
+    // biggest possible score
+    let score = 0;
+
+    answers.forEach(function(word) {
+      score = score + word.length;
+    })
+    pangrams.forEach(function(word) {
+      score = score + 10 + word.length;
+    })
+    return score;
   }
 
   scoreAnswers() {
@@ -118,7 +138,11 @@ class App extends Component {
         <Header/>
         <UserScore
           userScore={this.state.userScore}
-          wordCount={this.state.userAnswers.length + this.state.userPangrams.length}
+          userWordCount={this.state.userAnswers.length + this.state.userPangrams.length}
+          validAnswers={this.state.validAnswers}
+          validPangrams={this.state.validPangrams}
+          validWordCount={this.state.validAnswers.length + this.state.validPangrams.length}
+          getValidScores={this.getValidScores.bind(this)}
         />
         <Letters
           shuffleTheLetters={this.shuffleLetters.bind(this)}
