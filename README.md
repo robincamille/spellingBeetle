@@ -4,18 +4,19 @@
 
 I love the NYT's [Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee) game so much that I wanted to make a game I could practice on. I call it **Spelling Beetle**. 
 
-## To do: 
+![Wireframe](wireframe.jpg)
+
+
+## Project deliverables
 - JavaScript front end that:
-	- randomly chooses a pangram word set
+	- randomly chooses a pangram word set (sort of done)
 	- takes input
-	- evaluates answers
-	- scores user progress
+	- evaluates answers (done)
+	- scores user progress (done)
+	
+### Future features
 - Add feature to display definitions, so that you can see what bonkers-sounding words like 'hobbinoll' and 'waubeen' mean
 - Rank pangram difficulty according to word frequency
-
-### Done:
-- Python script to create source data files with pangrams and jumble answers (listmaker.py)
-	- 5-, 6-, 7-, and 8-letter pangrams
 
 ## Word jumble data
 
@@ -33,13 +34,10 @@ In your fave text editing program:
 Then run your .txt file through **listmaker.py**, which will generate a .json file with *n*-letter-long pangrams and all possible answers to the word jumble. 
 
 Sample output: 
-```{
+```
+{
 	"pangram": ["acclaimer", "calmier", "claimer", "micellar", "miracle", "reacclaim", "reclaim", "reclaimer"],
 	"validLetters": ["a", "c", "e", "i", "l", "m", "r"],
 	"answers": ["acclaimer", "acclaimer", "acea", "aceae",  ... "rimmer"]
 }
 ```
-
-## Word jumble game front end
-
-Working on it! 
