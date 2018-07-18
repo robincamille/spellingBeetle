@@ -7,12 +7,13 @@ class Input extends Component {
   constructor() {
   	super();
   	this.state = {
-  		guess: ''
+  		guess: '',
   	};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
 
   handleChange(event) {
     this.setState({
@@ -23,7 +24,6 @@ class Input extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.evaluateWord(this.state.guess);
-
     this.setState({
     	guess: ''
     });
@@ -34,7 +34,7 @@ class Input extends Component {
       <div className="component" id="inputcomponent">
         <p className="componentname">Input</p>
 
-      	<form onSubmit={this.handleSubmit}>
+      	<form onSubmit={this.handleSubmit} className={this.props.grayForm}>
         <label>
           Guess:
         </label>

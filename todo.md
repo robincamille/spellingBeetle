@@ -4,8 +4,8 @@ Note: assumption for word data: Answers does not include Pangrams
 
 ## For MVP
 - Re-do word data files: there are lots of words that are way obscure. Need 6, 7, 8 letter word sets.
-- Randomly choose a word set with each page refresh (currently hardcoded where to start)
-- Hide/show rules and answers (jQuery?)  - currently commented out
+- Randomly choose a word set with each page refresh - done
+- Hide/show rules and answers (jQuery?)  - done
 
 
 ## With more time
@@ -13,7 +13,6 @@ Note: assumption for word data: Answers does not include Pangrams
 - In the Answers pane, mark the words that the user got
 - Allow choice of 5, 6, 7, 8 letter word pangrams (change New Set button)
 - Pick one special letter (this will need to happen at the data level, then need to revise button and add a Js function)
-- Display all valid answers
 - Exclude very offensive words from data
 
 # Challenges solved

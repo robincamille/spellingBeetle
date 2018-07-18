@@ -11,6 +11,14 @@ body {
   display:block;
 }
 
+.grayed {
+  opacity:0.5;
+}
+
+.grayed input {
+  pointer-events:none;
+}
+
 .component {
   background-color: white;
   margin:0.5%;

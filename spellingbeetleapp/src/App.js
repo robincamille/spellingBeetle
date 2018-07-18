@@ -14,6 +14,9 @@ class App extends Component {
     super();
     this.state = {
       wordSetLength: undefined,
+      isCorrect: undefined,
+      answerShow: "hidden",
+      grayForm: "show",
 
       validLetters: [],
       validPangrams: [],
@@ -108,13 +111,17 @@ class App extends Component {
     let currentPangram = this.state.userPangrams;
 
     if (this.state.userAnswers.includes(word)) {
-      console.log("word already guessed")
+        console.log("word already guessed")
+        this.setState({
+          isCorrect: "alreadyguessed"
+        });
       } else if (this.state.validPangrams.includes(word)) {
         console.log("pangram!");
         currentPangram.push(word);
         currentPangram.sort();
         this.setState({
           userPangrams: currentPangram,
+          isCorrect: "pangram"
         });
         this.scoreAnswers();
       } else if (this.state.validAnswers.includes(word)) {
@@ -123,25 +130,46 @@ class App extends Component {
         currentList.sort();
         this.setState({
           userAnswers: currentList,
+          isCorrect: "yes"
         });
         this.scoreAnswers();
       } else {
         console.log("word is rejected");
         this.setState({
           userPangrams: currentPangram,
+          isCorrect: "no"
         });
 
 
       }
   }
 
+  answerToggler() {
+    //https://stackoverflow.com/questions/36403101/toggle-class-in-react/36404061
+    let css = (this.state.answerShow === "hidden") ? "show" : "hidden";
+    this.showAnswersEndGame();
+    this.setState({
+      answerShow: css
+    });
+  }
+
   newSet() {
     this.componentDidMount(); //re-chooses all valid__ state variables
+    this.answerToggler();
+    this.showAnswersEndGame();
     this.setState({
         userGuess:"",
         userAnswers: [],
         userPangrams: [],
         userScore: 0,
+    })
+  }
+
+  showAnswersEndGame() {
+    console.log('end game')
+    let graytoggle = (this.state.grayForm === "grayed" ? "show" : "grayed")
+    this.setState({
+        grayForm: graytoggle
     })
   }
 
@@ -169,10 +197,15 @@ class App extends Component {
           userPangrams={this.state.userPangrams}
           updateScore={this.scoreAnswers.bind(this)}
           evaluateWord={this.evaluateWord.bind(this)}
+          isCorrect={this.state.isCorrect}
+          grayForm={this.state.answersShown}
         />
         <Answers
           validPangrams={this.state.validPangrams}
           validAnswers={this.state.validAnswers}
+          answerShow={this.state.answerShow}
+          answerToggler={this.answerToggler.bind(this)}
+          showAnswersEndGame={this.showAnswersEndGame.bind(this)}
          />
       </div>
     );
