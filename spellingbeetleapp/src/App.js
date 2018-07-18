@@ -155,21 +155,22 @@ class App extends Component {
 
   newSet() {
     this.componentDidMount(); //re-chooses all valid__ state variables
-    this.answerToggler();
-    this.showAnswersEndGame();
     this.setState({
-        userGuess:"",
-        userAnswers: [],
-        userPangrams: [],
-        userScore: 0,
-    })
+      answerShow: "hidden",
+      userGuess:"",
+      userAnswers: [],
+      userPangrams: [],
+      userScore: 0,
+      isCorrect: undefined,
+      grayForm: "show"
+      })
   }
 
   showAnswersEndGame() {
     console.log('end game')
-    let graytoggle = (this.state.grayForm === "grayed" ? "show" : "grayed")
+    //let graytoggle = (this.state.grayForm === "grayed" ? "show" : "grayed")
     this.setState({
-        grayForm: graytoggle
+        grayForm: "grayed"
     })
   }
 
@@ -198,7 +199,7 @@ class App extends Component {
           updateScore={this.scoreAnswers.bind(this)}
           evaluateWord={this.evaluateWord.bind(this)}
           isCorrect={this.state.isCorrect}
-          grayForm={this.state.answersShown}
+          grayForm={this.state.grayForm}
         />
         <Answers
           validPangrams={this.state.validPangrams}

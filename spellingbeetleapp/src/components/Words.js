@@ -23,6 +23,7 @@ class Words extends Component {
         <Input 
 		 	evaluateWord={this.props.evaluateWord.bind(this)}
 		 	answersShown={this.props.answersShown}
+		 	grayForm={this.props.grayForm}
         />
         <p>{this.submitResponse()}&nbsp;</p>
 

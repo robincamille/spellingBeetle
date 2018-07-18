@@ -57,19 +57,43 @@ body {
   float:left;
 }
 
-#letterscomponent ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+#letterscomponent #letterscontainer {
+  min-height: 220px;
 }
 
-#letterscomponent ul li {
+#letterscomponent .letter {
   font-size: 4em;
   font-weight: bold;
   display: inline;
   text-transform: uppercase;
-  margin: 5px;
+  font-family: courier, monospace;
+/*  width: 100px;
+  background-color: pink;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;*/
 }
+
+#letterscomponent #letter0 {
+  position: relative;
+  top:1em;
+}
+
+#letterscomponent #letter1 {
+  position: relative;
+  top:2.25em;
+}
+
+#letterscomponent #letter3 {
+  position: relative;
+  top:2.25em;
+}
+
+#letterscomponent #letter4 {
+  position: relative;
+  top:1em;
+}
+
 
 #letterscomponent #actions button {
   cursor: pointer;
