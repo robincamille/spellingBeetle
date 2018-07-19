@@ -1,6 +1,19 @@
 body {
+  background-color: #F1FAF4;
+}
+
+a {
+  color:#009F33;
+}
+
+a:hover {
+  color:#007526;
+}
+
+#root {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 20px auto;
+  background-color: white;
 }
 
 .hidden {
@@ -33,6 +46,10 @@ body {
 }
 
 #headercomponent {
+  padding: 20px 0; 
+  margin: 0;
+  background-color: #009F33;
+  color: #fff;
 }
 
 #headercomponent #rules ul {
@@ -41,7 +58,8 @@ body {
 }
 
 #userscorecomponent {
-  border-bottom:1px solid gray;
+  /*border-bottom:1px solid gray;*/
+  color: #007526;
 }
 
 #userscorecomponent #score {
@@ -55,6 +73,7 @@ body {
 #letterscomponent {
   width:48%;
   float:left;
+  min-width: 300px;
 }
 
 #letterscomponent #letterscontainer {
@@ -105,13 +124,20 @@ body {
 }
 
 #letterscomponent #actions #newset {
-  
+  background-color: #B94A20;
+  border-color:#B94A20;
+}
+
+#letterscomponent #actions #newset:hover {
+  background-color: #9B3A16;
+  border-color:#9B3A16;
 }
 
 #wordscomponent {
   width:48%;
   float:right;
   min-height: 300px;
+  min-width: 300px;
 }
 
 #wordscomponent ul {
@@ -153,6 +179,9 @@ body {
 #answerscomponent #answerspane {
   display:none;
 }
+#answerscomponent button {
+  margin-bottom:20px;
+}
 #answerscomponent ul {
   text-align: left;
   columns: 4;
@@ -162,6 +191,8 @@ body {
 
 .App {
   text-align: center;
+  border:1px solid #009F33;
+  border-radius: 5px;
 }
 
 .App-logo {
@@ -228,8 +259,8 @@ button, input[type="submit"] {
 
 button, input[type="submit"] {
     color: #ffffff;
-  background-color: #214f94;
-  border-color: #214f94;
+  background-color: #009F33;
+  border-color: #009F33;
 }
 
 button:hover,
@@ -240,8 +271,8 @@ input[type="submit"]:focus,
 input[type="submit"]:active
 {
   color: #ffffff;
-  background-color: #175fca;
-  border-color: #175fca;
+  background-color: #007526;
+  border-color: #007526;
 }
 
 small {

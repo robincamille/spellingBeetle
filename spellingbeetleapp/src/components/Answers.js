@@ -2,16 +2,6 @@ import React, { Component } from 'react';
 
 class Answers extends Component {
 
-  constructor() {
-    super();
-  }
-
-  dictLink() {
-    return ("https://www.merriam-webster.com/dictionary/" + "yes")
-  }
-  //        <li><a href={this.dictLink()}>yes</a></li>
-
-
   render() {
     return (
       <div className="component" id="answerscomponent" >

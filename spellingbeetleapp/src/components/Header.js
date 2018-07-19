@@ -10,7 +10,7 @@ class Header extends Component {
     return (
       <div className="component" id="headercomponent">
         <p className="componentname">Header</p>
-      	<h1>Spelling Beetle</h1>
+      	<h1><span role="img" aria-label="ladybug">🐞</span> Spelling Beetle <span role="img" aria-label="ladybug">🐞</span></h1>
       	{/*
       	<div id="rules">
       		<button onClick={() => {this.displayRules()}}>Rules</button>
