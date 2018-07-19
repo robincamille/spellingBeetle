@@ -2,7 +2,7 @@
 
 I love the NYT's [Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee) word jumble game so much that I wanted to make a game I could practice on as a final project for General Assembly's JavaScript Development Course. I call my game **Spelling Beetle**. 
 
-![Screenshot](screenshot_beetle.png)
+![Screenshot](screenshot_spellingbeetle.png)
 
 ## Project deliverables
 JavaScript front end that:
