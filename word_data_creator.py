@@ -1,6 +1,6 @@
 import json
 
-filename = open('nltk-words_revised.txt','r')
+filename = open('top10000_revised.txt','r')
 #filename = open('words_minitest.txt','r')
 dataraw = filename.readlines()
 filename.close()
@@ -15,7 +15,7 @@ beewords = []
 data = []
 allpangrams = []
 
-num = 7
+num = 5
 strnum = str(num)
 print('making word jumble game data file with ' + strnum + ' letters in pangram')
 
@@ -93,7 +93,7 @@ for anyword in allwords:
 
 print('')
 print('jumble data words length:',len(beewords))
-with open('word_data_output/jumble-words_nltk_' + strnum + '.json', 'w') as outfile:
+with open('word_data_output/jumble-10k_' + strnum + '.json', 'w') as outfile:
     for words in beewords:
         json.dump(words, outfile)
         outfile.write(',\n')

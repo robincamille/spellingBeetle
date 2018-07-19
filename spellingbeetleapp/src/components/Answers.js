@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 
 class Answers extends Component {
 
-  
+  constructor() {
+    super();
+  }
+
+  dictLink() {
+    return ("https://www.merriam-webster.com/dictionary/" + "yes")
+  }
+  //        <li><a href={this.dictLink()}>yes</a></li>
+
 
   render() {
     return (
@@ -12,9 +20,10 @@ class Answers extends Component {
         <button onClick={() => this.props.answerToggler() } title="Ends game">Display answers</button>
         <div className={this.props.answerShow}>
         <h3>Pangrams</h3>
-        <ul id="pangramslist">{this.props.validPangrams.map(function(item,i){return <li key={i}>{item}</li>})}</ul>
+        <ul id="pangramslist">{this.props.validPangrams.map(function(item,i){return <li key={i}><a href={"https://www.merriam-webster.com/dictionary/"+item} target="_blank" >{item}</a></li>})}
+        </ul>
         <h3>All answers</h3>
-        <ul id="answerslist">{this.props.validAnswers.map(function(item,i){return <li key={i}>{item}</li>})}</ul>
+        <ul id="answerslist">{this.props.validAnswers.map(function(item,i){return <li key={i}><a href={"https://www.merriam-webster.com/dictionary/"+item} target="_blank" >{item}</a></li>})}</ul>
         </div>
 
       </div>

@@ -38,7 +38,7 @@ class App extends Component {
   //AJAx call
   //https://reactjs.org/docs/faq-ajax.html
   componentDidMount() {
-    fetch("https://accesscontrolalloworiginall.herokuapp.com/http://robincamille.com/spellingbeetle/jumble5.json")
+    fetch("https://accesscontrolalloworiginall.herokuapp.com/http://robincamille.com/spellingbeetle/jumble5_hard.json")
       .then(res => res.json())
       .then(
         (result) => {
@@ -174,6 +174,10 @@ class App extends Component {
     })
   }
 
+  dictLink() {
+    return ("https://www.merriam-webster.com/dictionary/" + "yes")
+  }
+
   render() {
     return (
       <div className="App">
@@ -207,6 +211,7 @@ class App extends Component {
           answerShow={this.state.answerShow}
           answerToggler={this.answerToggler.bind(this)}
           showAnswersEndGame={this.showAnswersEndGame.bind(this)}
+          dictLink={this.dictLink.bind(this)}
          />
       </div>
     );
