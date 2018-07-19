@@ -9,7 +9,8 @@ Note: assumption for word data: Answers does not include Pangrams
 
 
 ## With more time
-- Popup with score upon accepted input
+- Happy alert when high score is achieved
+- Popup with score upon accepted input - sort of done, could be more visible
 - In the Answers pane, mark the words that the user got
 - Allow choice of 5, 6, 7, 8 letter word pangrams (change New Set button)
 - Pick one special letter (this will need to happen at the data level, then need to revise button and add a Js function)

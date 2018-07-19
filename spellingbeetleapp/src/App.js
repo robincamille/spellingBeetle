@@ -48,7 +48,7 @@ class App extends Component {
             validLetters: result.wordSets[randNum].validLetters,
             validPangrams: result.wordSets[randNum].validPangram,
             validAnswers: result.wordSets[randNum].validAnswers,
-            wordSetLength: result.wordSets.length
+            wordSetLength: result.wordSets.length,
           });
         },
         (error) => {
@@ -61,6 +61,18 @@ class App extends Component {
   }
   //end AJAX stuff
 
+  getValidScores(answers,pangrams) {
+    // biggest possible score
+    let score = 0;
+
+    answers.forEach(function(word) {
+      score = score + word.length;
+    })
+    pangrams.forEach(function(word) {
+      score = score + 10 + word.length;
+    })
+    return score;
+  }
 
   shuffleLetters() {
     let theLetters = this.state.validLetters;
@@ -73,19 +85,6 @@ class App extends Component {
     this.setState({
         validLetters: theLetters
       })
-  }
-
-  getValidScores(answers,pangrams) {
-    // biggest possible score
-    let score = 0;
-
-    answers.forEach(function(word) {
-      score = score + word.length;
-    })
-    pangrams.forEach(function(word) {
-      score = score + 10 + word.length;
-    })
-    return score;
   }
 
   scoreAnswers() {
@@ -174,9 +173,7 @@ class App extends Component {
     })
   }
 
-  dictLink() {
-    return ("https://www.merriam-webster.com/dictionary/" + "yes")
-  }
+
 
   render() {
     return (
@@ -189,6 +186,7 @@ class App extends Component {
           validPangrams={this.state.validPangrams}
           validWordCount={this.state.validAnswers.length + this.state.validPangrams.length}
           getValidScores={this.getValidScores.bind(this)}
+          highScore={this.state.highScore}
         />
         <Letters
           shuffleTheLetters={this.shuffleLetters.bind(this)}
@@ -211,7 +209,6 @@ class App extends Component {
           answerShow={this.state.answerShow}
           answerToggler={this.answerToggler.bind(this)}
           showAnswersEndGame={this.showAnswersEndGame.bind(this)}
-          dictLink={this.dictLink.bind(this)}
          />
       </div>
     );
