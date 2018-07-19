@@ -47,6 +47,9 @@ All told, I built the MVP in about 5 hours and spent about 12 hours total on the
 ### Future features
 - Show/hide answers (done)
 - Add feature to display definitions, so that you can see what bonkers-sounding words like 'hobbinoll' and 'waubeen' mean  (done)
+- Fun alert when high score is reached (make more visual?)
+- Blank out letters when New Set is clicked (couldn't figure this out) 
+- Make letters clickable/tappable for mobile
 - Add 6-, 7-, and 8-letter pangram word set choices
 - Rank pangram difficulty according to word frequency
 - Error handling
